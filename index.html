@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partido Futebolista Brasileiro</title>
+    <link rel="stylesheet" href=".\media\style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo do Partido">
+                <h1>Partido Futebolista Brasileiro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#candidates">Candidatos</a></li>
+                    <li><a href="#proposals">Propostas</a></li>
+                    <li><a href="#news">Notícias</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Por um país mais justo e desenvolvido</h2>
+            <p>Junte-se a nós nessa jornada por mudanças reais</p>
+            <div class="cta-buttons">
+                <a href="#join" class="btn-primary">Filiar-se</a>
+                <a href="#donate" class="btn-secondary">Doar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Sobre o Partido</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>O Partido Futebolista Brasileiro é uma força política comprometida com o desenvolvimento sustentável, a justiça social e a ética na política.</p>
+                    <p>Fundado em 2010, já elegemos mais de 200 representantes em todo o país, trabalhando incansavelmente por melhorias na educação, saúde e infraestrutura.</p>
+                    <p>Nossos valores são: transparência, igualdade, progresso e sustentabilidade.</p>
+                </div>
+                <div class="about-image">
+                    <img src="team.jpg" alt="Equipe do Partido">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="candidates" class="candidates-section">
+        <div class="container">
+            <h2>Nossos Candidatos</h2>
+            <div class="candidates-grid">
+                <div class="candidate-card">
+                    <img src="candidate1.jpg" alt="Candidato 1">
+                    <h3>Koutelli Avenida</h3>
+                    <p>Candidato a Presidente</p>
+                    <button class="btn-candidate">Conhecer</button>
+                </div>
+                <div class="candidate-card">
+                    <img src="candidate2.jpg" alt="Candidato 2">
+                    <h3>Kantelli Avenida</h3>
+                    <p>Candidato a Vice-Presidente</p>
+                    <button class="btn-candidate">Conhecer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proposals" class="proposals-section">
+        <div class="container">
+            <h2>Nossas Propostas</h2>
+            <div class="proposals-accordion">
+                <div class="accordion-item">
+                    <button class="accordion-btn">Educação <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Investimento de 10% do PIB em educação, valorização dos professores e reforma curricular para o século XXI.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Saúde <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Universalização do acesso à saúde de qualidade, com investimento em equipamentos e profissionais.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Economia <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Políticas de geração de emprego, apoio às pequenas empresas e atração de investimentos estrangeiros.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="news-section">
+        <div class="container">
+            <h2>Últimas Notícias</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="news1.jpg" alt="Notícia 1">
+                    <div class="news-content">
+                        <h3>Partido lança campanha nacional</h3>
+                        <p>O PPN iniciou sua campanha com eventos em 10 capitais brasileiras.</p>
+                        <a href="#" class="read-more">Ler mais</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="news2.jpg" alt="Notícia 2">
+                    <div class="news-content">
+                        <h3>Proposta de reforma educacional</h3>
+                        <p>Nossos deputados apresentaram novo projeto para a educação básica.</p>
+                        <a href="#" class="read-more">Ler mais</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="news3.jpg" alt="Notícia 3">
+                    <div class="news-content">
+                        <h3>Encontro com lideranças jovens</h3>
+                        <p>Evento debateu políticas públicas para a juventude brasileira.</p>
+                        <a href="#" class="read-more">Ler mais</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Seu telefone">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Sua mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal, 123 - Centro, Brasília/DF</p>
+                    <p><i class="fas fa-phone"></i> (54) 6161-6161</p>
+                    <p><i class="fas fa-envelope"></i> contato@pfb.org.br</p>
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo-white.png" alt="Logo do Partido">
+                    <p>Partido Futebolista Brasileiro</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#candidates">Candidatos</a></li>
+                        <li><a href="#proposals">Propostas</a></li>
+                        <li><a href="#news">Notícias</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Receba nossas atualizações por e-mail</p>
+                    <form>
+                        <input type="email" placeholder="seu e-mail">
+                        <button type="submit">Assinar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Partido Futebolista Brasileiro. Todos os direitos reservados.</p>
+                <p>CNPJ: 12.345.678/0001-90</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
