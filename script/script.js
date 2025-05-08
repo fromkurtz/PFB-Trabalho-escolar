@@ -1,67 +1,80 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu mobile
+    // ========== MENU MOBILE ==========
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
     
-    mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('show');
-    });
-    
-    // Fechar menu ao clicar em um link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('show');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            this.classList.toggle('active');
         });
-    });
-    
-    // Accordion das propostas
+        
+        // Fechar menu ao clicar em um link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
+
+    // ========== ACCORDION DAS PROPOSTAS ==========
     const accordionItems = document.querySelectorAll('.accordion-item');
     
-    accordionItems.forEach(item => {
-        const btn = item.querySelector('.accordion-btn');
-        
-        btn.addEventListener('click', function() {
-            // Fecha todos os outros itens
-            accordionItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
+    if (accordionItems.length > 0) {
+        accordionItems.forEach(item => {
+            const btn = item.querySelector('.accordion-btn');
             
-            // Abre/fecha o item clicado
-            item.classList.toggle('active');
+            btn.addEventListener('click', function() {
+                // Fecha todos os outros itens
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Abre/fecha o item clicado
+                item.classList.toggle('active');
+            });
         });
-    });
-    
-    // Smooth scroll para links internos
+    }
+
+    // ========== SMOOTH SCROLL PARA LINKS INTERNOS ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Efeito de scroll para o header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
-        } else {
-            header.style.boxShadow = 'none';
-        }
-    });
+    // ========== EFEITO DE SCROLL PARA O HEADER ==========
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
     
-    // Animação ao rolar a página
+    // ========== ANIMAÇÃO AO ROLAR A PÁGINA ==========
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.candidate-card, .news-card, .about-image, .contact-form');
         
@@ -70,28 +83,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const screenPosition = window.innerHeight / 1.3;
             
             if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
+                element.classList.add('show');
             }
         });
     };
     
-    // Define a propriedade inicial para a animação
-    const animatedElements = document.querySelectorAll('.candidate-card, .news-card, .about-image, .contact-form');
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
+    // Executa ao carregar e ao rolar
     window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Executa uma vez ao carregar a página
+    window.addEventListener('load', animateOnScroll);
     
-    // Formulário de contato
+    // ========== FORMULÁRIO DE CONTATO ==========
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validação simples
+            const nameInput = this.querySelector('input[name="name"]');
+            const emailInput = this.querySelector('input[name="email"]');
+            const messageInput = this.querySelector('textarea[name="message"]');
+            
+            if (!nameInput.value || !emailInput.value || !messageInput.value) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
             
             // Simulação de envio
             const formData = new FormData(this);
@@ -104,19 +119,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Formulário de newsletter
+    // ========== FORMULÁRIO DE NEWSLETTER ==========
     const newsletterForm = document.querySelector('.footer-newsletter form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const emailInput = this.querySelector('input[type="email"]');
-            if (emailInput.value) {
-                // Simulação de cadastro
-                console.log('Email cadastrado:', emailInput.value);
-                alert('Obrigado por assinar nossa newsletter!');
-                emailInput.value = '';
+            if (!emailInput.value) {
+                alert('Por favor, insira seu e-mail.');
+                return;
             }
+            
+            // Simulação de cadastro
+            console.log('Email cadastrado:', emailInput.value);
+            alert('Obrigado por assinar nossa newsletter!');
+            emailInput.value = '';
         });
     }
 });
