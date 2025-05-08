@@ -261,6 +261,87 @@ nav ul li a:hover {
 }
 
 /* Proposals Section */
+.proposals-section {
+    background-color: var(--light-color);
+}
+
+.proposals-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.accordion-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.accordion-btn i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: #fff;
+}
+
+.accordion-content p {
+    padding: 20px 0;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.accordion-item.active .accordion-btn {
+    background-color: var(--secondary-color);
+}
+
+.accordion-item.active .accordion-btn i {
+    transform: rotate(180deg);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+    padding: 0 20px;
+}
+
+/* Adicione isso no final do seu CSS para a animação suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-content p {
+    animation: fadeIn 0.3s ease-out;
+}
+
 .proposals-accordion {
     max-width: 800px;
     margin: 0 auto;
